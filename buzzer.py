@@ -6,19 +6,18 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setnode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
-#Use whatever pin you have it set to on the Pi as this may change
-buzzer_pin=24
+buzzer_pin = 24
 
-GPIO.setup(buzzer_pin, duration)
+GPIO.setup(buzzer_pin, GPIO.OUT)
 
-def buzz (pitch, duration):
-	period = 1.0 / pitch
-	delay = period / 2
-	cycles = int(duration * pitch)
-	for i in range(cycles):
-		GPIO.output(buzzer_pin, True)
-		time.sleep(delay)
-		GPIO.output(buzzer_pin, False)
-		time.sleep(delay)
+def buzz(pitch, duration):
+  period = 1.0 / pitch
+  delay = period / 2
+  cycles = int(duration * pitch)
+  for i in range(cycles):
+    GPIO.output(buzzer_pin, True)
+    time.sleep(delay)
+    GPIO.output(buzzer_pin, False)
+    time.sleep(delay)
