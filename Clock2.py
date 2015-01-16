@@ -12,7 +12,6 @@ from trigger import trigger
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-# You modified this in the morning. Don't forget to push the changes through GIT
 awake = 0
 run = 1
 try:
@@ -36,8 +35,8 @@ try:
             # Only works whilst the alarm is going off
         if GPIO.input(25) == 1 and awake == 1:
             trigger()
-			run = 0
-            awake = 0
+			awake = 0
+            run = 0
             print("Alarm has been silenced. Devices will power on.")
 					
 			# If alarm continues past the set alarm time without being
@@ -52,7 +51,8 @@ try:
 	#This follows the button press. It'll send another signal when activated and go back to the beginning of the following while
     while run == 0:
         input("Press enter to send another signal and turn off the relay.")
-	run = 1
+		trigger()
+		run = 1
 finally:
         GPIO.cleanup()
 	print("End")
