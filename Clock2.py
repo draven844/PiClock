@@ -2,8 +2,7 @@
 # Modified by Draven Rodriguez
 # Modified from Ismail Uddin's code
 # For use in Draven Rodriguez's IBDT Design Project
-#Do NOT run in Python 3, use regular IDLE
-#8 hours work on 1-15-15
+#Do NOT run in Python 3, use regular IDLE, because syntax and things	
 
 import time
 import RPi.GPIO as GPIO
